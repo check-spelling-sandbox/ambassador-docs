@@ -1,0 +1,178 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# Automatically suggested patterns
+
+# hit-count: 22028 file-count: 4472
+# https/http/file urls
+(?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]
+
+# hit-count: 1267 file-count: 237
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 677 file-count: 254
+# kubernetes pod status lists
+# https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase
+\w+(?:-\w+)+\s+\d+/\d+\s+(?:Running|Pending|Succeeded|Failed|Unknown)\s+
+
+# hit-count: 443 file-count: 211
+# kubernetes object suffix
+-[0-9a-f]{10}-\w{5}\s
+
+# hit-count: 356 file-count: 186
+# Compiler flags (Windows / PowerShell)
+# This is a subset of the more general compiler flags pattern.
+# It avoids matching `-Path` to prevent it from being treated as `ath`
+(?:^|[\t ,"'`=(])-(?:[DPL](?=[A-Z]{2,})|[WXYl](?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,}))
+
+# hit-count: 301 file-count: 235
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 142 file-count: 105
+# curl arguments
+\b(?:\\n|)curl(?:\.exe|)(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+# hit-count: 136 file-count: 95
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u|[uU]\+|#x?|%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
+
+# hit-count: 112 file-count: 57
+# macOS temp folders
+/var/folders/\w\w/[+\w]+/(?:T|-Caches-)/
+
+# hit-count: 85 file-count: 17
+# GitHub actions
+\buses:\s+[-\w.]+/[-\w./]+@[-\w.]+
+
+# hit-count: 80 file-count: 31
+# bearer auth
+\b[Bb]ear[e][r]:? [-a-zA-Z=;:/0-9+.]+
+
+# hit-count: 63 file-count: 50
+# IServiceProvider / isAThing
+(?:\b|_)(?:I|isA)(?=(?:[A-Z][a-z]{2,})+(?:[A-Z]|\b))
+
+# hit-count: 59 file-count: 40
+# scala imports
+^import (?:[\w.]|\{\w*?(?:,\s*(?:\w*|\*))+\})+
+
+# hit-count: 57 file-count: 19
+# lower URL escaped characters
+%[0-9a-f][a-f](?=[a-z]{2,})
+
+# hit-count: 35 file-count: 33
+# Non-English
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+
+# hit-count: 33 file-count: 11
+# AWS VPC
+vpc-\w+
+
+# hit-count: 32 file-count: 32
+# mailto urls
+mailto:[-a-zA-Z=;:/?%&0-9+@._]{3,}
+
+# hit-count: 32 file-count: 32
+# Contributor
+\[[^\]]+\]\(https://github\.com/[^/\s"]+/?\)
+
+# hit-count: 28 file-count: 26
+# libraries
+\blib(?!rar(?:ies|y))(?=[a-z])
+
+# hit-count: 20 file-count: 5
+# vs devops
+\bvisualstudio.com(?::443|)/[-\w/?=%&.]*
+
+# hit-count: 17 file-count: 17
+# sed regular expressions
+sed 's/(?:[^/]*?[a-zA-Z]{3,}[^/]*?/){2}
+
+# hit-count: 16 file-count: 12
+# JavaScript regular expressions
+# javascript test regex
+/.{3,}/[gim]*\.test\(
+
+# hit-count: 14 file-count: 14
+# hex runs
+\b[0-9a-fA-F]{16,}\b
+
+# hit-count: 8 file-count: 8
+# GHSA
+GHSA(?:-[0-9a-z]{4}){3}
+
+# hit-count: 6 file-count: 3
+# go install
+go install(?:\s+[a-z]+\.[-@\w/.]+)+
+
+# hit-count: 5 file-count: 5
+# regex choice
+\(\?:[^)]+\|[^)]+\)
+
+# hit-count: 4 file-count: 3
+# Twitter markdown
+\[@[^[/\]:]*?\]\(https://twitter.com/[^/\s"')]*(?:/status/\d+(?:\?[-_0-9a-zA-Z&=]*|)|)\)
+
+# hit-count: 2 file-count: 1
+# css url wrappings
+\burl\([^)]+\)
+
+# hit-count: 2 file-count: 1
+# data url
+\bdata:[-a-zA-Z=;:/0-9+]*,\S*
+
+# hit-count: 2 file-count: 1
+# apple
+\bdeveloper\.apple\.com/[-\w?=/]+
+
+# hit-count: 2 file-count: 1
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!['"])\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)['"](?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 1 file-count: 1
+# git index header
+index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
+
+# hit-count: 1 file-count: 1
+# bearer auth
+(['"])[Bb]ear[e][r] .*?\g{-1}
+
+# hit-count: 1 file-count: 1
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b(?:[Ll]og|[Ss]ign) in to\b
+
+# to opt in
+\bto opt in\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-SsTtx]){3}[\.+*]?\s+\d+\s+\S+\s+\S+\s+\d+\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(auto|center|div|inherit|long|LONG|none|normal|solid|thin|transparent|very)(?: \g{-1})+\s
+# C struct
+\bstruct\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|inject|json|yaml):
+# doxygen / javadoc / .net
+(?:[\\@](?:brief|groupname|link|t?param|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+(?:static|override|readonly|required|virtual))*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
+
+# Python package registry has incorrect spelling for macOS / Mac OS X
+"Operating System :: MacOS :: MacOS X"
+
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
